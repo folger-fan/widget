@@ -20,7 +20,7 @@
 ```
 经过尝试，方法可行，不过span的宽度会过大。经过检查，发现span的字体跟input不一样，导致span的宽度不同于input中内容的宽度。做如下设置:
 ```javascript
-$span.css({
+    $span.css({
         'font-size':$el.css('font-size'),
         'font-family':$el.css('font-family'),
         'font-weight':$el.css('font-weight')
