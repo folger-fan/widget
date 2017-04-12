@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../setUrlSearchParam.js"></script>
+<script>
+    console.log(location.search);
+    setTimeout(function () {
+        location.href = setUrlSearchParam('_t', +new Date)
+    }, 1000)
+</script>
+</body>
+</html>
