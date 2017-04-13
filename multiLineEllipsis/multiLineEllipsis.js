@@ -41,6 +41,8 @@ function getEllText(text, width, fontStyle, limit) {
         ellLength = getTextWidth('&hellip;', fontStyle);
     for (var i = 0, textLen = textArr.length; i < textLen; i++) {
         var textWidth = getTextWidth(textArr[i], fontStyle);
+        //理论上lineWidth + ellLength + textWidth 不需要后面的textWidth，不过浏览器会自动换一行
+        //就和汉字后面接英文会自动换行一样，textWidth作为冗余量起到兼容效果
         if (lineArr.length >= limit - 1 && lineWidth + ellLength + textWidth > width) {
             tempArr.push('&hellip;');
             lineArr.push(tempArr.join(''));
