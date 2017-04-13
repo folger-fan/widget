@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container {
+            width: 142px;
+            font-size: 18px;
+            font-weight: bold;
+            font-family:"宋体";
+        }
+        .text-slice {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div>&hellip;</div>
+<div id="container">
+    四到位
+</div>
+<div style="width:30px;font-weight: bold" class="text-slice">做一个内容的标签配置</div>
+<script src="../multiLineEllipsis.js"></script>
+<script>
+    var content = '做一个内容的标签配置。因为标签id递增整数，且不会多。为了方便查询，内容表用三个bigint字段表示，每个字段表示六十个标签。标签id1-60的存第一个字段，61-120存第二个字段，121-180存第三个字段。以第一个字段为例，包含id为1、3的标签对应二进制101，转换成十进制存进字段。这样就避免了表连接查询。（后台同学的逻辑思维前端同学表示很烧脑）';
+    var ell = getEllText(content, '142px', {
+        fontSize: '18px',
+        fontWeight: 'bold',
+        fontFamily:'宋体'
+    }, 2);
+    document.getElementById('container').innerHTML = ell;
+</script>
+</body>
+</html>
