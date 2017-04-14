@@ -4,6 +4,19 @@
 
 百度了下，发现css可以设置节点单行文本缩略显示，但控制不了多行的。
 
+> 同事发现了webkit下控制多行文本省略的css
+```css
+        .multi-line-ell-base{
+            overflow : hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+        .multi-line-ell-2{
+            -webkit-line-clamp: 2;
+        }
+```
+
 没找到合适的解决方案只能撸起袖子自己干。折腾了快两天时间写了个工具方法。
 
 首先，有些字符（如字母数字）的宽度只有汉字的一半，如果用判断字符集的方式判断每个文字会有多少宽度比较麻烦。
