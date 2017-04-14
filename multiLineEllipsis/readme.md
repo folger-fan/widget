@@ -4,7 +4,7 @@
 
 百度了下，发现css可以设置节点单行文本缩略显示，但控制不了多行的。
 
-> 同事发现了webkit下控制多行文本省略的css
+> 同事发现了webkit下控制多行文本省略的css 2017-04-14
 ```css
         .multi-line-ell-base{
             overflow : hidden;
