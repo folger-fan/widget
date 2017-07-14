@@ -26,7 +26,7 @@ var pageLeave = (function () {
             num++;
             var dif = te - tb - num * step;
             console.log(dif);
-            if (dif > 1000) {//正常情况下dif会是几ms
+            if (dif > pageLeave.leaveTime) {//正常情况下dif会是几ms
                 reset();
                 cbkCache.forEach(function(cbk){
                     cbk()
@@ -42,3 +42,4 @@ var pageLeave = (function () {
         }
     }
 })();
+pageLeave.leaveTime = 1000;//可以修改1000为其他值设置灵敏度
