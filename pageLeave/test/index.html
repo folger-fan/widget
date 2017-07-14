@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+<a href="https://bikan.qq.com/n/">必看影视</a>
+<script src="../lib/pageLeave.js"></script>
+<script>
+    console.log(pageLeave);
+    pageLeave(function(){
+        alert('leave')
+    });
+
+    let showed = false;
+    window.onpageshow = function () {
+        console.log('show');
+        if (showed) {
+//            alert('back')
+        }
+        showed = true;
+    };
+</script>
+</body>
+</html>
