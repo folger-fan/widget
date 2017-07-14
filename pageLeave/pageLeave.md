@@ -13,7 +13,7 @@ ios的微信、qq浏览器/safari切到其他程序再回来，可以判断离�
 因为移动端不同手机不同系统不同浏览器的兼容性问题，如果碰到类似问题，可以结合iosPackBack和pageLeave综合处理。
 ## 原理
 设置初始时间tb、迭代setInterval时间间隔step和计数器num，setInterval中num++。<br/>
-然后判断当前时间te - tb - num * step的差值dif，是否大于1秒(可自定义)
+然后判断当前时间te - tb - num * step的差值dif，是否大于1秒(可自定义)<br/>
 页面一直活跃的时候差值是很小的，如果页面切出去了但处于挂起状态的话，初始值有效但js进程会挂起，setInterval不会执行<br/>
 页面再次活跃js继续执行那么dif就可认为是页面离开的时间。
 
