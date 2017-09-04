@@ -5,3 +5,4 @@
 ## [设置url中search参数](https://github.com/folger-fan/widget/tree/master/setUrlSearchParam)
 ## [js控制指定行数的多余文本省略](https://github.com/folger-fan/widget/tree/master/multiLineEllipsis)
 ## [页面离开判断、ios页面回退判断](https://github.com/folger-fan/widget/tree/master/pageLeave)
+## [github收集的开源库说明](https://github.com/folger-fan/widget/tree/master/github_stars_explain)
