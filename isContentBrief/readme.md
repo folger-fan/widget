@@ -17,7 +17,7 @@
 
 经过尝试发现，将节点wrapper文本内容用span包裹，缩略有效，被隐藏的span的top会大于等于节点wrapper的bottom。如图
 
-![图片](./demo1.png)
+![图片](https://p.qpic.cn/wyp_pic/duc2TvpEgSQic1bTK3W7QPEA4AHxQXsTRYqmNV1ISLE0yOXbkibyAebFKSLtqdoOxF/0)
 
 根据这个原理可以判断节点的文本是否是缩略的
 
