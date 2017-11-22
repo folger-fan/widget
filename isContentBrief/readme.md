@@ -21,7 +21,7 @@
 
 根据这个原理可以判断节点的文本是否是缩略的
 
-见[demo](./demo.html)
+见[demo](https://github.com/folger-fan/widget/blob/master/isContentBrief/demo.html)
 
 js代码如下:
 
