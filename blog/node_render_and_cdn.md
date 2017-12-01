@@ -93,7 +93,7 @@ console.log('else not node');
 /////////
 ```
 笔者在ifdef-loader的基础上做了完善，新写了[ifelse-loader](https://github.com/folger-fan/ifelse-loader)：保留ifdef-loader的功能的基础上，options可以在webpack配置文件中用options配置，不用追加在loader?后的参数中。
-####配置
+#### 配置
 ```
 {
    loader: '../ifelse-loader',
