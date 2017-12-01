@@ -1,5 +1,5 @@
 # web前端发展路程
-web页面最开始都是一个个静态页面，再加上些动态效果，但资源都是静态的。人们想根据需要，不同的用户、不同的场景生成不同的页面，这就有了asp、jsp等动态页面生成技术，这个时候的web开发者基本前后端一起写。ajax的兴起，前端能做的事更多了、更复杂了，前端门槛和地位也更高了，这时候催生了前后端分离。前端从后端拿数据，然后只需要关注页面逻辑，后端只需要提供接口不用关注复杂的前端逻辑，专业的专注的做自己喜欢和擅长的事，大家开发起来似乎都很爽。然鹅，移动H5的兴起，人们对产品体验的重视，让移动H5的起始白屏时间让大家难以忍受，为了减少白屏时间、提升页面加载速度和利于SEO，这时候就有了服务器直出。
+web页面最开始都是一个个静态页面，再加上些动态效果，但资源都是静态的。人们想根据需要，不同的用户、不同的场景生成不同的页面，这就有了asp、jsp等动态页面生成技术，这个时候的web开发者基本前后端一起写。ajax的兴起，前端能做的事更多了、更复杂了，前端门槛和地位也更高了，这时候催生了前后端分离。前端从后端拿数据，然后只需要关注页面逻辑，后端只需要提供接口不用关注复杂的前端逻辑，专业的专注的做自己喜欢和擅长的事，大家开发起来似乎都很爽。然鹅，移动H5的兴起，人们对产品体验的重视，移动H5的起始白屏时间让大家难以忍受，为了减少白屏时间、提升页面加载速度和利于SEO，这时候就有了服务器直出。
 
 更多详情可以参考这篇文章 [Web 研发模式演变](https://github.com/lifesinger/blog/issues/184)
 
@@ -52,28 +52,28 @@ req.headers['user-agent'];
 ```
 那么可不可以做到在业务逻辑层调用模块A，不管是浏览器端引用还是服务器端引用，业务层都不需要关心模块A底层如何实现，只需要关心模块A提供了什么功能。
 
-打个比方：后台提供数据接口A，浏览器端ML模块调用A，服务器端MF模块调用A。浏览器端调用不了MF模块,会报错。服务器端调用不了ML模块，会报错。现在统一用模块MT，浏览器端和服务器端都可以引用MF来调用A。
+打个比方：后台提供数据接口A，浏览器端ML模块调用A，服务器端MF模块调用A。浏览器端调用不了MF模块,会报错。服务器端调用不了ML模块，会报错。现在统一用模块MT，浏览器端和服务器端都可以引用MF来调用A。可以理解为MT模块自动适配自己是ML还是MF。
 
 我们想要的是不光复用V层，也能复用M层
 
 有人会说在代码里判断是服务器端还是浏览器端执行不同代码。but，我们用webpack编译，最后生成的文件可能会包含很多服务器端才用的上的模块，引用的第三方库可能也会运行服务器端才有的api，在浏览器端会报错。
 
 如何实现？经过一番思考和资料查询，决定在源码编译这个层面区分前后端代码。
-在源文件中，包含前后端各自代码，用条件判断语句包裹，在编译的过程中根据配置对源文件中内容进行选择过滤，前端引用为前端生成的文件， 后端引用为后端编译的文件。虽然也有点麻烦，但能更进一步通用代码，对业务层代码透明。
+在源文件中，包含前后端各自代码，用条件判断语句包裹，在编译的过程中根据配置对源文件中内容进行选择过滤，前端引用为前端生成的文件， 后端引用为后端生成的文件。虽然也有点麻烦，但可以在工具方法层集中处理，更进一步通用代码，对业务层代码透明。
 
 ### 5.源码编译成前后端各自使用的代码
 AlloyTeam兴趣部落直出讲座的ppt上给出的方案如下
 ![图5](https://p.qpic.cn/wyp_pic/duc2TvpEgSQ0qq1Q7Zl3sXJGlebvj7hLWMS3aTFxH5ZzhQPrSgtr7q3LtbIEtia3q/0)
 ![图6](https://p.qpic.cn/wyp_pic/duc2TvpEgSRA44YN8YqThcWN3Yao0M4PP55EjYkicoaPjxLItAXaFkA1l917xb6qq/0)
 ![图7](https://p.qpic.cn/wyp_pic/duc2TvpEgSTdial74f0MYptzq7zkev4SU1cYsIwWJy5lw9ZuE3Jf22rv93sKOjKfs/0)
-总结下，大概就是一份源码编译成两份代码。通过webpack的loader或babel插件，编译成server端运行的代码时，将`__BROWSER__`和'__END__'中间的代码去掉。
+总结下，大概就是一份源码编译成两份代码。通过webpack的loader或babel插件，编译成server端运行的代码时，将`__BROWSER__`和`__END__`中间的代码去掉。
 调用数据接口，编译前端代码的时候将方法名替换成前端用的方法名。
 
 从ppt了解的信息推断，AlloyTeam很可能将源码编译成两份代码，服务器端执行的和浏览器端执行的。
 
 ### 6.webpack的loader根据环境生成不同的源码
 
-我在网上找到一类根据条件输出不同代码的webpack的loader [if-loader](https://github.com/friskfly/if-loader)[ifdef-loader](https://github.com/nippur72/ifdef-loader)。其中if-loader只能判断if，没有判断else的功能。ifdef-loader用ts实现的，可能是为webpack1准备的，options只能在loader?后面追加条件。相比if-loader增加了else的判断。如下所示：
+我在网上找到一类根据条件输出不同代码的webpack的loader [if-loader](https://github.com/friskfly/if-loader)和[ifdef-loader](https://github.com/nippur72/ifdef-loader)。其中if-loader只能判断if，没有判断else的功能。ifdef-loader用ts实现的，可能是为webpack1准备的，options只能在loader?后面追加条件。相比if-loader增加了else的判断。如下所示：
 ```
 loaders: [ "ts-loader", `ifdef-loader?${q}` ]
 ```
@@ -103,9 +103,9 @@ console.log('else not node');
 }
 ```
 
-但是在node端如果引用源文件的话，为前端准备的代码会遗留在源文件中造成代码冗余。有些前端文件在es6的标准些会使用import等node不支持的语法，引用这些类库会在服务器端造成报错。
+在node端如果引用原文件的话，为前端准备的代码会遗留在源文件中造成代码冗余。有些前端文件在es6的标准下会使用import等node不支持的语法，引用这些类库会在服务器端造成报错。
 
-像AlloyTeam一样，笔者尝试过将源码编译一份node端使用的，不过感觉用起来很奇怪，开发时候要监听源码编译成浏览器端和服务器端不同的代码，影响开发效率。 后来想将node中的require改写，可以带上编译的功能或者webpack在编译的时候将源文件a编译一份放到当前目录生成_node_a文件， 其他文件引用a的时候会转而引用_node_a。因为node中每个模块的require都是独立的，没有统一的地方改写，所以另外写了个ISRequire包装原require
+webpack在编译的时候将源文件a编译一份放到当前目录生成_node_a文件， node端引用a的时候会转而引用_node_a。因为node中每个模块的require都是独立的，没有统一的地方改写，所以另外写了个ISRequire包装原require
 
 如下：
 接口调用的源文件,BFRequest.js
@@ -125,9 +125,9 @@ let BFRequest = function (params) {
 };
 module.exports = BFRequest;
 ```
-request-promise是服务器端http请求的模块，../views/lib/request_promise是浏览器端封装的ajax请求模块
+`request-promise`是服务器端http请求的模块，`../views/lib/request_promise`是浏览器端封装的ajax请求模块
 
-BFRequest.js会另外生成一份_node_BFRequest.js
+BFRequest.js会另外生成一份`_node_BFRequest.js`
 
 ![图8](https://p.qpic.cn/wyp_pic/duc2TvpEgSSXicTVaP8v9MdBlwRyxaGVYVMVmA9axQWZBaeokh4NV9z0oRNBnPtWc/0)
 
@@ -135,7 +135,7 @@ BFRequest.js会另外生成一份_node_BFRequest.js
 
 filmModel.js是前后端都会用到的模块，引用BFRequest.js调取数据
 
-用ISRequire包裹require，node端用ISRequire读取BFRequest.js，实际读取的_node_BFRequest.js，[ISRequire源码在这里](https://github.com/folger-fan/ifelse-loader/blob/master/ISRequire.js)
+用ISRequire包裹require，node端用ISRequire读取BFRequest.js，实际读取的`_node_BFRequest.js`，[ISRequire源码在这里](https://github.com/folger-fan/ifelse-loader/blob/master/ISRequire.js)
 
 
 ```
@@ -210,7 +210,7 @@ web开发者都知道静态文件存cdn的好处，但知易行难。这里有�
 
 总结下静态文件存cdn在实践中遇到的问题：
 
-简单点项目，静态资源丢cdn，手动改写html、css等文件中的资源引用为cdn路径。项目复杂点呢？每次都手动改写么？有些团队是重构和业务逻辑分开写的，重构可能不需要关心，直接丢给业务开发重构好的页面，手动修改引用路径是不现实的。
+简单点项目，静态资源丢cdn，手动改写html、css等文件中的资源引用为cdn路径。项目复杂点呢？每次都手动改写么？有些团队是重构和业务逻辑分不同人写的，重构可能不需要关心资源是不是cdn路径，直接丢给业务开发重构好的页面，手动修改引用路径是不现实的。
 
 项目发布的时候，先发布静态资源还是先发布代码呢？先发布静态资源，覆盖了cdn资源，线上代码怎么办？先发布代码，cdn没有对应的静态资源，还是会有问题。这里就需要给静态资源打上指纹，发布到cdn的时候不会覆盖已有资源，接着发布代码就没问题了。开发环境下还是引用的本地目录，不可能每改点东西就发一次cdn吧。
 
@@ -231,9 +231,9 @@ web开发者都知道静态文件存cdn的好处，但知易行难。这里有�
 }
 ```
 
-资源表还可以用来比对hash判断只发布更新后的静态资源
+资源表还可以用来比对hash判断只发布有更新的静态资源，增量发布
 
-原静态资源也会随着node代码一起发布。模版文件中资源引用调用注入的方法cdnPath，在浏览器端的话该方法不做任何调整，在服务器端如果开发环境不做调整，非开发环境下会根据资源表调整为cdn路径
+原静态资源也会随着node代码一起发布,线上页面保留能访问node端静态资源的能力。模版文件中资源引用调用注入的方法cdnPath，在浏览器端的话该方法不做任何调整，在服务器端如果开发环境不做调整，非开发环境下会根据资源表调整为cdn路径
 
 ```
 <link rel="stylesheet" href="{{'css/pub.css'|cdnPath}}" />
@@ -302,4 +302,3 @@ require('../../util/template.js');
 做直出和静态资源放cdn，可以明显感觉到页面打开速度快了很多，以前手机隔一段时间访问页面，会白屏很久甚至打开失败，现在感觉比秒开更快。
 
 查阅了不少前端资料，也实践了很多，碰到走不通的地方跳转方向尝试，对前端工程化有了更深入全面的认识。
-
