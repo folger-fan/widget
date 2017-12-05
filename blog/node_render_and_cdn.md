@@ -132,7 +132,7 @@ BFRequest.js会另外生成一份`_node_BFRequest.js`
 
 ![图8](https://p.qpic.cn/wyp_pic/duc2TvpEgSSXicTVaP8v9MdBlwRyxaGVYVMVmA9axQWZBaeokh4NV9z0oRNBnPtWc/0)
 
-![图8](https://p.qpic.cn/wyp_pic/duc2TvpEgSRYTzu6tUoPvibcX2PzeejKR8kia7MMibA03cYGoUiaHkNkYDvKSxGseTcL/0)
+![图9](https://p.qpic.cn/wyp_pic/duc2TvpEgSRYTzu6tUoPvibcX2PzeejKR8kia7MMibA03cYGoUiaHkNkYDvKSxGseTcL/0)
 
 filmModel.js是前后端都会用到的模块，引用BFRequest.js调取数据
 
@@ -223,7 +223,7 @@ web开发者都知道静态文件存cdn的好处，但知易行难。这里有�
 
 发布目录中的文件名
 
-![图9](https://p.qpic.cn/wyp_pic/duc2TvpEgSTafibjNYPmBmFVwWdwFv6AsXHXVicCgug9BIS08Vm2tIjaved9z95lsB/0)
+![图11](https://p.qpic.cn/wyp_pic/duc2TvpEgSTafibjNYPmBmFVwWdwFv6AsXHXVicCgug9BIS08Vm2tIjaved9z95lsB/0)
 
 资源表
 ```
@@ -285,10 +285,10 @@ require('../../util/template.js');
 最后的效果如图：
 
 开发环境下
-![图11](https://p.qpic.cn/wyp_pic/duc2TvpEgSS0SVadpC7pbmOSuf3X9vax0RIUWVud3kpSqcOHSRkkQ2mzocDjgDx5/0)
+![图12](https://p.qpic.cn/wyp_pic/duc2TvpEgSS0SVadpC7pbmOSuf3X9vax0RIUWVud3kpSqcOHSRkkQ2mzocDjgDx5/0)
 
 测试环境下
-![图12](https://p.qpic.cn/wyp_pic/duc2TvpEgSQHNPTrU3h22f2sBDadtPGxN983nEIEuToPpMT5jyzsHH9B9wbxfiaibR/0)
+![图13](https://p.qpic.cn/wyp_pic/duc2TvpEgSQHNPTrU3h22f2sBDadtPGxN983nEIEuToPpMT5jyzsHH9B9wbxfiaibR/0)
 
 
 ## 不足
