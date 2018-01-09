@@ -63,3 +63,12 @@ if (rfs !== fs) {
 经实验，在PC谷歌浏览器、火狐浏览器，缩放页面，页面不会发生异常。在我的安卓微信下，页面缩放后，页面会异常，但刷新浏览器就ok了。
 
 这里是[样例代码](http://atest.yk.qq.com/static/folger/test/index.html)
+
+附上谷歌浏览器页面缩放的效果
+
+![缩小](https://p.qpic.cn/wyp_pic/duc2TvpEgSQOvv7icIgK7FpHxKCIukyZNW76Wmb8fJz47tM54FgjzuvdyoaM9KJBY/364)
+
+![正常](https://p.qpic.cn/wyp_pic/duc2TvpEgSSVWPZeRib2DgJLLjXastSjdQiaNq19JRG7ia1wuYnMhqOQViaNGZPsZHYc/364)
+
+![放大](https://p.qpic.cn/wyp_pic/duc2TvpEgSQ8onKuml3MEkVDqJMD8jwlHt03Gpr2ySbhVhfsD5zn8t5JbRGF2fB5/364)
+
