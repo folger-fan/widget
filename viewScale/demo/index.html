@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <style>
+        body { /* IOS禁止微信调整字体大小 */
+            -webkit-text-size-adjust: 100% !important;
+        }
+    </style>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ?
+                    'orientationchange' : 'resize';
+            function recalc() {
+                var width = docEl.clientWidth;
+                var fs = 100 * (width / 750);
+                docEl.style.fontSize = fs + 'px';
+                var rfs = window.getComputedStyle(
+                    document.documentElement).fontSize.replace('px', '');
+                if (rfs !== fs) {
+                    fs = fs * (fs / rfs);
+                    docEl.style.fontSize = fs + 'px';
+                }
+            }
+            recalc();
+            if (win.addEventListener) win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div style="font-size: 2rem;position: fixed;top:50%;left:50%;transform: translate(-50%,-50%)">正</div>
+<div style="font-size: 55px;width: 55px;background: red;" id="size"><span id="fontSpan"
+                                                                          style="background: green">正</span></div>
+<script src="./zepto.min.js"></script>
+</body>
+</html>
