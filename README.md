@@ -10,3 +10,4 @@
 - [检查html节点中文本是否是缩略](https://github.com/folger-fan/widget/tree/master/isContentBrief)
 - [node直出我都做了什么](https://github.com/folger-fan/widget/tree/master/blog/node_render_and_cdn.md)
 - [浏览器缩放下页面自适应](https://github.com/folger-fan/widget/tree/master/viewScale)
+- [前端开发调试神器三件套(进阶版)](https://github.com/folger-fan/widget/tree/master/blog/front_debug.md)
