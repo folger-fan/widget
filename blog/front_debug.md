@@ -20,7 +20,7 @@ Fiddler的其他功能可自行在网上查找，这里介绍Fiddler结合Willow
 ## 本地资源代理
 打个比方，线上页面出问题了，本地不好复现，那么可以在本地浏览器打开线上页面，将指定js、css等资源代理到本地资源，修改本地资源刷新浏览器就可以看到修改后的效果。
 
-![js代理](https://p.qpic.cn/wyp_pic/duc2TvpEgSSBDkNcMuL4tEowqGhsePaiaV5IicRQDibBrhfLR7yT7UfY7g4L6kRoqO3/0)
+![单文件代理](https://p.qpic.cn/wyp_pic/duc2TvpEgSSBDkNcMuL4tEowqGhsePaiaV5IicRQDibBrhfLR7yT7UfY7g4L6kRoqO3/0)
 
 单个文件代理，Fiddler本身也有这个功能，但Willow更好用些，Willow还可以代理整个目录
 
@@ -43,6 +43,7 @@ Fiddler设置如图
 手机和PC需要在同一个局域网中。在作者公司中台式电脑和无线网不是一个局域网，那么就需要台式机插上无线网卡跟手机连同一个wifi。
 
 手机的wifi设置中可以添加代理
+
 ![手机代理](https://p.qpic.cn/wyp_pic/duc2TvpEgSQV18ZQS7G6Jq0wENicOONefXhLkfCTHDC3ZgPVZtyZlohaIXOcibibtyv/364)
 
 服务器主机名为电脑的ip，端口填Fidller监听的端口，上面图片有标出7777
@@ -53,7 +54,7 @@ Fiddler设置如图
 
 ![生效](https://p.qpic.cn/wyp_pic/duc2TvpEgSSBtLHT23J0ibWYjrnicNicHdvKVCHHBVX1Biaap34kyia0M2bs7TJmZ5Ict/0)
 
-作者用Fiddler做本地资源代理，借助另外要讲的两个工具也能完成，但要时不时的点击右下角使Fiddler生效，所以作者除非调试手机页面，一般不用Fiddler。
+作者用Fiddler做本地资源代理，借助另外要讲的两个工具也能完成，但Fiddler经常失效，需要时不时的点击左下角使Fiddler生效，所以作者除非调试手机页面，一般不用Fiddler。
 
 # Switch Host
 网上这类工具很多，自行搜索下载。作用是切换域名和ip的绑定关系。打个比方，在本地机器起了个Node服务，监听8080端口，用Switch Host工具将 `folger.test.com`域名绑定到`127.0.0.1`(本地机器ip等同`localhost`)。那么访问 `folger.test.com:8080`等同于访问`localhost:8080`。
@@ -84,3 +85,15 @@ Nginx还可以将请求代理到本地，很多服务器的静态文件服务就
 ![本地文件代理](https://p.qpic.cn/wyp_pic/duc2TvpEgSQstjpgo7yQpJ9HiaRucNRic4IURvGfvh6MvfQkS3E0cHJXNsvwLou83a/0)
 
 借助Nginx和Switch Host，域名下静态资源可以代理到本地，接口可以代理到测试、正式环境接口，极大方便了开发阶段的开发调试工作。
+
+## 踩坑
+作者windows电脑上Nginx的启动命令nginx.exe，直接点击是无效的，需要进入命令行模式启动。为了方便操作，作者在Nginx目录下自己写了两个bat文件，启动和重启Nginx：
+
+start.bat `start nginx.exe`
+
+restart.bat `nginx -s reload`
+
+作者的Windows下Nginx偶尔出现修改配置文件，怎么重启都没效果，本人对Nginx不算精通，一般都是重启电脑。
+
+用的时候双击这两个bat文件就可以完成Nginx的启动、重启
+
