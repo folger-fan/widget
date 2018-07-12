@@ -12,3 +12,5 @@
 - [浏览器缩放下页面自适应](https://github.com/folger-fan/widget/tree/master/viewScale)
 - [前端开发调试神器三件套(进阶版)](https://github.com/folger-fan/widget/tree/master/blog/front_debug.md)
 - [小程序动画能力整理归纳踩坑记](https://github.com/folger-fan/widget/tree/master/blog/mp_dh_demo.md)
+- [TSW入门指南](https://github.com/folger-fan/widget/tree/master/blog/TSW_learn.md)
+- [记一次微信H5视频自动播放的探索(内有经验小技巧)](https://github.com/folger-fan/widget/tree/master/blog/wx_video_auto_play.md)
