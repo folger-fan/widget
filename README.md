@@ -14,4 +14,4 @@
 - [小程序动画能力整理归纳踩坑记](https://github.com/folger-fan/widget/tree/master/blog/mp_dh_demo.md)
 - [TSW入门指南](https://github.com/folger-fan/widget/tree/master/blog/TSW_learn.md)
 - [记一次微信H5视频自动播放的探索(内有经验小技巧)](https://github.com/folger-fan/widget/tree/master/blog/wx_video_auto_play.md)
-- [css3动画暂停能力研究)](https://github.com/folger-fan/widget/tree/master/blog/transform_pause.md)
+- [css3动画暂停能力研究](https://github.com/folger-fan/widget/tree/master/blog/transform_pause.md)
