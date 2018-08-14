@@ -1,4 +1,4 @@
-# 为解决工作中碰到的问题总结的工具集
+# 为解决工作中碰到的问题总结以及个人博客
 
 - [JavaScript大整数的位比较](https://github.com/folger-fan/widget/tree/master/bitEqual)
 - [input自动伸缩宽度](https://github.com/folger-fan/widget/tree/master/inputWidthScale)
@@ -15,3 +15,4 @@
 - [TSW入门指南](https://github.com/folger-fan/widget/tree/master/blog/TSW_learn.md)
 - [记一次微信H5视频自动播放的探索(内有经验小技巧)](https://github.com/folger-fan/widget/tree/master/blog/wx_video_auto_play.md)
 - [css3动画暂停能力研究](https://github.com/folger-fan/widget/tree/master/blog/transform_pause.md)
+- [记一次H5弹幕开发](https://github.com/folger-fan/widget/tree/master/blog/danmu.md)
