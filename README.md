@@ -1,4 +1,4 @@
-# 为解决工作中碰到的问题总结以及个人博客
+# 工作中碰到的问题总结以及个人博客
 
 - [JavaScript大整数的位比较](https://github.com/folger-fan/widget/tree/master/bitEqual)
 - [input自动伸缩宽度](https://github.com/folger-fan/widget/tree/master/inputWidthScale)
